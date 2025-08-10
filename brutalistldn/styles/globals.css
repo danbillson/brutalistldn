@@ -1,0 +1,90 @@
+/* Brand tokens */
+:root {
+  --bg: #0E0E0E;          /* near-black */
+  --paper: #E8E6E3;       /* warm light gray */
+  --ink: #1A1A1A;         /* deep gray/ink */
+  --muted: #A4A19B;       /* muted text */
+  --concrete: #C9C6C0;    /* concrete */
+  --accent: #E31B23;      /* sparing red */
+
+  --hairline: color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+
+  --color-bg: var(--bg);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-concrete: var(--concrete);
+  --color-accent: var(--accent);
+}
+
+/* Base */
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--paper);
+  font-family: var(--font-inter), system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-feature-settings: "ss01","ss02","liga","tnum";
+}
+
+/* Paper sections */
+.section-paper {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Hairline rules */
+.rule {
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.hairline-b {
+  border-bottom: 0.5px solid var(--hairline);
+}
+
+/* Utilities */
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Links */
+a {
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Large gutters on xl+ to create black margins */
+@media (min-width: 1280px) {
+  .page-wrap {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background: var(--bg);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
